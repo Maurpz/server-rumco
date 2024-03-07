@@ -7,10 +7,16 @@ const admin = process.env.ADMIN_RECEPTOR
 export async function sendInfoAdmins (data) {
   try {
     const result = await transporter.sendMail({
-      from: `Nose we 👻<${process.env.AUTH_USER_GMAIL}>`,
+      from: `Rumco-bot 🤖<${process.env.AUTH_USER_GMAIL}>`,
       to:`${admin}`,
-      subject: 'Prueva de envio',
-      text: `${JSON.stringify(data)}`
+      subject: `Datos prospectos ${data.name} ${data.lastname}`,
+      text: `
+      <strong>Nombre: </strong><span>${data.name}</span><br>
+      <strong>Apellidos: </strong><span>${data.lastname}</span><br>
+      <strong>Correo: </strong><span>${data.email}</span><br>
+      <strong>Numero: </strong><span>${data.phoneNumber}</span><br>
+      <strong>Mensaje: </strong><span>${data.message}</span><br>
+      `
     })
     return {send: true, status:200}
   } catch (error) {
