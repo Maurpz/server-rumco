@@ -61,6 +61,7 @@ export async function changeStateRedirect (id) {
 }
 
 export async function saveInformation (data) {
+  console.log('guardadndo la informacion')
   try {
     const queryResult = await prisma.infoRedirect.create({
       data: {
@@ -72,6 +73,7 @@ export async function saveInformation (data) {
       id: queryResult.id
     }
   } catch (error) {
+    console.log(error)
     return {registered: false}
   }
 }
