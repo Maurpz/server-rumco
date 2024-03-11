@@ -10,7 +10,7 @@ export async function sendInfoAdmins (data) {
       from: `Rumco-bot 🤖<${process.env.AUTH_USER_GMAIL}>`,
       to:`${admin}`,
       subject: `Datos prospectos ${data.name} ${data.lastname}`,
-      text: `
+      html: `
       <strong>Nombre: </strong><span>${data.name}</span><br>
       <strong>Apellidos: </strong><span>${data.lastname}</span><br>
       <strong>Correo: </strong><span>${data.email}</span><br>
